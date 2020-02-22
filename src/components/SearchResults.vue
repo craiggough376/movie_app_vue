@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div id=results>
+      <search-page-buttons :total="searchResults.totalResults"></search-page-buttons>
       <ul>
           <li v-on:click="sendFilm(search.imdbID)" v-for="(search, index) in searchResults.Search" :key="index">{{search.Title}}</li>
       </ul>
-       <p>Total Results: {{searchResults.totalResults}}</p>
-       <search-page-buttons v-if="searchResults.totalResults" :total="searchResults.totalResults"></search-page-buttons>
   </div>
 </template>
 
@@ -13,7 +12,7 @@ import {eventBus} from '../main.js'
 import SearchButtons from './SearchPageButtons.vue'
 export default {
     name: 'search-results',
-    props: ['searchResults', 'currentPage'],
+    props: ['searchResults'],
     data(){
         return{
             selectedFilm: null
@@ -31,11 +30,18 @@ export default {
 </script>
 
 <style>
+
 ul{
     list-style: none;
 }
 li{    
-    border-style: double
+    border-style:groove;
+    padding: 10px;
+    transition-duration: 500ms;
+    transition-property: background, font-size;
 }
-
+li:hover{
+    background: gray;
+    font-size: 1.2em;
+}
 </style>
