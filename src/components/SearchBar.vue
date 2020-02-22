@@ -1,6 +1,6 @@
 <template>
     <div>
-    <input type="text" placeholder="Search for a movie..." v-model="searchString">
+    <input type="text" placeholder="Search for a movie..." v-model="searchString" style="width: 300px; height: 18px;">
     <button v-on:click="sendSearchString()">Search</button>
     </div>
 </template>

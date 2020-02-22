@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <h2>Movie Marker &#127909;</h2>
-    <button v-on:click="showFavourites()">Show WatchList</button>
-    <p>You have {{this.favouritesArray.length}} movies saved</p>
-    <search-bar></search-bar>
+    <div id="header"><h2>Movie Marker &#127909;</h2>
+      <search-bar></search-bar>
+      <button v-on:click="showFavourites()">Show WatchList</button>
+    </div>
+    <p v-if="this.favouritesArray.length > 1">You have {{this.favouritesArray.length}} movies saved</p>
     <favourites-list :favourites="this.favouritesArray" v-if="this.favourites && !this.searchResults"></favourites-list>
       <div id=main v-if="this.searchResults">
         <search-results :class="!this.filmById ? 'results-full':'results-half'" :searchResults="this.searchResults"></search-results>
@@ -79,11 +80,15 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 #main{
   display: flex;
   justify-content: center;
+}
+#header{
+  display: flex;
+  align-items:baseline;
+  justify-content: space-around
 
 }
 .filmItem{
@@ -96,5 +101,20 @@ export default {
 .results-half{
   transition-duration: 1s;
   width: 45vw;
+}
+button {
+  border-style:solid;
+  border-radius: 3px;
+  /* padding: 15px 32px; */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  /* height: 10px; */
+
+
+}
+button:hover{
+  background-color: grey;
 }
 </style>

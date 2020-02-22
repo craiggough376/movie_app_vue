@@ -42,7 +42,7 @@ export default {
     /* align-items: center; */
 }
 #all{
-
+/* border-style: solid; */
 }
 #filmBlock{
     /* display: flex;

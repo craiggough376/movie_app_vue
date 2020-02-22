@@ -2,7 +2,7 @@
   <div id=results>
       <search-page-buttons :total="searchResults.totalResults"></search-page-buttons>
       <ul>
-          <li v-on:click="sendFilm(search.imdbID)" v-for="(search, index) in searchResults.Search" :key="index">{{search.Title}}</li>
+          <li v-on:click="sendFilm(search.imdbID)" v-for="(search, index) in searchResults.Search" :key="index">{{search.Title}} | {{search.Year}}</li>
       </ul>
   </div>
 </template>
