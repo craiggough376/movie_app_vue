@@ -1,17 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>My Movies</h2>
+    <search-bar></search-bar>
+    <search-results v-if="this.searchResults"  :searchResults="this.searchResults"></search-results>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import {eventBus} from './main.js'
+import SearchBar from './components/SearchBar.vue'
+import SearchResults from './components/SearchResults.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    'search-bar': SearchBar,
+    'search-results': SearchResults
+  },
+  data(){
+    return{
+      searchResults: null
+    }
+  },
+  methods: {
+    fetchMovies: function(searchString) {
+      fetch(`http://www.omdbapi.com/?s=${searchString}&page=1&apikey=82fc1890`)
+      .then(response => response.json())
+      .then(searchResults => this.searchResults = searchResults)
+    }
+  },
+  computed: {
+
+  },
+  mounted(){
+    eventBus.$on('search-string', enteredString => {this.fetchMovies(enteredString)})
   }
 }
 </script>
