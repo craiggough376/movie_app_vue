@@ -7,7 +7,7 @@
                         <!-- <img v-bind:src="film.Poster"/> -->
                         </div>
                     <button v-on:click="addToFaves()">Add To WatchList</button>
-                    <h3>{{film.Year}}</h3>
+                    <h3>Year of Release: {{film.Year}}</h3>
                 <div id=ratings>
                     <div id=rating v-for="(rating, index) in film.Ratings" :key="index">
                         <h3 >{{rating.Source}}</h3>
@@ -16,7 +16,7 @@
                 </div>
             <p>Box Office: {{film.BoxOffice}}</p>
             <p>{{film.Awards}}</p>
-            <p>{{film.Plot}}</p>
+            <p>Plot: {{film.Plot}}</p>
          </div>
       </div>
       </div> 
@@ -37,8 +37,8 @@ export default {
 
 <style scoped>
 #title{
-    display: flex;
-    justify-content:flex-start;
+    /* display: flex; */
+    /* justify-content:flex-start; */
     /* align-items: center; */
 }
 #all{
@@ -75,8 +75,9 @@ export default {
 }
 #ratings{
     display: flex;
-    align-items: center
+    align-items:center;
 }
+
 img{
     height: 200px;
 }

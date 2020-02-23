@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <div id="header"><h2>Movie Marker &#127909;</h2>
+  <!-- <link href="https://fonts.googleapis.com/css?family=Anton|Teko&display=swap" rel="stylesheet">  -->
+     <div id="header">
+      <h1>Movie Marker &#127909;</h1>
       <search-bar></search-bar>
       <button v-on:click="showFavourites()">Show WatchList</button>
     </div>
@@ -19,6 +21,7 @@ import SearchBar from './components/SearchBar.vue'
 import SearchResults from './components/SearchResults.vue'
 import FilmItem from './components/FilmItem.vue'
 import FavouritesList from './components/FavouritesList.vue'
+
 export default {
   name: 'App',
   components: {
@@ -75,11 +78,15 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Impact, Charcoal, sans-serif;
+  	
+
+  font-family: 'Anton', ;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: lightblue;
 }
 #main{
   display: flex;
@@ -88,8 +95,12 @@ export default {
 #header{
   display: flex;
   align-items:baseline;
-  justify-content: space-around
+  justify-content: space-around;
+  background-color:whitesmoke;
 
+}
+h1{
+  font-size: 1.8em;
 }
 .filmItem{
   transition: width 2s;

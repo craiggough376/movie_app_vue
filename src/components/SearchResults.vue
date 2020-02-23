@@ -37,6 +37,7 @@ ul{
 li{    
     border-style:groove;
     padding: 10px;
+    background: white;
     transition-duration: 500ms;
     transition-property: background, font-size;
 }

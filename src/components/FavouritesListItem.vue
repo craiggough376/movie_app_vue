@@ -1,7 +1,8 @@
 <template>
   <div>
       <button v-on:click="deleteFilm()">Delete</button>
-      <input type="checkbox" value="seen" v-model="seen">Seen</input>
+      <input type="checkbox" value="seen" v-model="seen">
+      <label for="checkbox">Seen</label>
       <h3>{{film.Title}}</h3>
   </div>
 </template>
